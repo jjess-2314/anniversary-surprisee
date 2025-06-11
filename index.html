@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 8 Months Anniversary</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      color: #333;
+    }
+
+    .section {
+      display: none;
+      padding: 20px;
+    }
+
+    .show {
+      display: block;
+    }
+
+    .heart {
+      color: red;
+      font-size: 50px;
+    }
+
+    .bike-intro img {
+      width: 90%;
+      max-width: 600px;
+      margin: 40px auto;
+      animation: rideIn 3s ease-in-out forwards;
+    }
+
+    @keyframes rideIn {
+      0% {transform: translateX(-100vw);}
+      100% {transform: translateX(0);}
+    }
+
+    .envelope {
+      width: 100px;
+      height: 60px;
+      background: #fff;
+      border: 2px solid #ff0000;
+      position: relative;
+      margin: 20px auto;
+      cursor: pointer;
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: #ff0000;
+      border-radius: 10px;
+    }
+
+    .letter {
+      display: none;
+      background: #ffdde1;
+      width: 80%;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      color: #333;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ffaaaa;
+    }
+
+    .ring-box {
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      border: 2px solid #ff0000;
+      position: relative;
+      margin: 20px auto;
+      cursor: pointer;
+    }
+
+    .ring {
+      display: none;
+      font-size: 30px;
+      color: gold;
+      margin-top: 20px;
+    }
+
+    .final-scene img {
+      width: 90%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      background-color: #ff69b4;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #ddd;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Section 1: Intro Bike -->
+  <div id="section1" class="section show bike-intro">
+    <h1>Happy 8 Months Anniversary, My Love! <span class="heart">❤️</span></h1>
+    <img src="https://media.tenor.com/WrsAjj5c7DoAAAAC/bike-couple.gif" alt="Yamaha FZ Couple Ride">
+    <h2>Let's go for a date?</h2>
+    <button onclick="goToLoveLetter()">Click Here</button>
+  </div>
+
+  <!-- Section 2: Options and Envelope -->
+  <div id="section2" class="section">
+    <h2>Do you want to go?</h2>
+    <button onclick="showEnvelope()">Yes</button>
+    <button disabled>No</button>
+
+    <div class="envelope" onclick="openEnvelope()"></div>
+    <div class="letter" id="loveLetter">
+      <h3>My Dearest Jeswin (Bujji),</h3>
+      <p>
+        From our first smile to every silly fight, from random rides to deep conversations—every moment with you is a memory I cherish.
+        These 8 months have been magical, and I can’t imagine life without your love and laughter.
+      </p>
+      <p>
+        You are my peace, my chaos, my forever person. I don't just want a happy ending—I want a beautiful journey, with you by my side, through every turn life takes.
+      </p>
+      <p>Yours truly and forever, <br> Jessica (Bujju)</p>
+      <button onclick="showProposal()">Next</button>
+    </div>
+  </div>
+
+  <!-- Section 3: Proposal -->
+  <div id="section3" class="section">
+    <div class="ring-box" onclick="openRingBox()"></div>
+    <div class="ring" id="ringText">Will you marry me?</div>
+    <button onclick="showFinalScene()">Yes</button>
+  </div>
+
+  <!-- Section 4: Final Scene -->
+  <div id="section4" class="section final-scene">
+    <img src="https://media.tenor.com/w9Wy9Oa3bEEAAAAC/married-life-bike-ride.gif" alt="Royal Enfield with Bride and Groom">
+    <h2>Forever riding together through ups and downs 💑</h2>
+  </div>
+
+  <script>
+    function goToLoveLetter() {
+      document.getElementById('section1').classList.remove('show');
+      document.getElementById('section2').classList.add('show');
+    }
+
+    function showEnvelope() {
+      document.querySelector('.envelope').style.display = 'block';
+    }
+
+    function openEnvelope() {
+      document.getElementById('loveLetter').style.display = 'block';
+    }
+
+    function showProposal() {
+      document.getElementById('section2').classList.remove('show');
+      document.getElementById('section3').classList.add('show');
+    }
+
+    function openRingBox() {
+      document.getElementById('ringText').style.display = 'block';
+    }
+
+    function showFinalScene() {
+      document.getElementById('section3').classList.remove('show');
+      document.getElementById('section4').classList.add('show');
+    }
+  </script>
+</body>
+</html>
