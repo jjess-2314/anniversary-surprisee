@@ -8,10 +8,10 @@
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background: url('https://i.imgur.com/3XHjGSP.png') repeat;
-      background-size: contain;
+      background: url('https://i.ibb.co/yS7xS5L/hearts-bg.jpg') repeat;
+      background-size: cover;
       color: #333;
-      text-align: centre;
+      text-align: center;
       overflow-x: hidden;
     }
 
@@ -36,7 +36,7 @@
       transition: 0.3s ease;
     }
 
-    button: hover {
+    button:hover {
       background-color: #ff79a8;
     }
 
@@ -53,6 +53,7 @@
       position: relative;
       cursor: pointer;
       transition: transform 0.3s ease;
+      border-radius: 10px;
     }
 
     .envelope::before {
@@ -95,7 +96,7 @@
     .ring {
       display: none;
       font-size: 28px;
-      colour: gold;
+      color: gold;
       margin-top: 15px;
     }
 
@@ -108,7 +109,7 @@
 </head>
 <body>
 
-  <h1>Happy 8-Month Anniversary, Jeswin! <span class="heart">❤️</span></h1>
+  <h1>Happy 8 Months Anniversary, Jeswin! <span class="heart">❤️</span></h1>
   <h2>Wanna go on a forever date with me?</h2>
   <button onclick="showEnvelope()">Yes</button>
   <button id="noBtn" onmouseover="moveNo()">No</button>
@@ -116,7 +117,7 @@
   <div class="envelope" id="envelope" onclick="openEnvelope()"></div>
 
   <div class="letter" id="letter">
-    <img class="roses" src="https://i.imgur.com/eMZdA0i.png" alt="roses">
+    <img class="roses" src="https://i.ibb.co/W0jYP50/rose.png" alt="roses">
     <h3>My Dearest Bujji,</h3>
     <p>From our laughs to our dreams, every moment with you is a blessing.</p>
     <p>I can’t wait to build a beautiful future together, filled with joy, silly jokes, and midnight cuddles.</p>
@@ -161,8 +162,8 @@
 
     function moveNo() {
       const btn = document.getElementById("noBtn");
-      const randomX = Math.floor(Math.random() * 80) - 40;
-      const randomY = Math.floor(Math.random() * 80) - 40;
+      const randomX = Math.floor(Math.random() * 200) - 100;
+      const randomY = Math.floor(Math.random() * 100) - 50;
       btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
     }
   </script>
