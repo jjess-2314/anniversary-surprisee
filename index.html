@@ -1,188 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Happy 8 Months Anniversary</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Arial', sans-serif;
-      background-color: #fff0f5;
-      text-align: center;
+      background: url('https://i.imgur.com/3XHjGSP.png') repeat;
+      background-size: contain;
       color: #333;
+      text-align: centre;
+      overflow-x: hidden;
     }
 
-    .section {
-      display: none;
-      padding: 20px;
-    }
-
-    .show {
-      display: block;
+    h1, h2, h3 {
+      margin-top: 20px;
     }
 
     .heart {
       color: red;
-      font-size: 50px;
+      font-size: 40px;
     }
 
-    .bike-intro img {
-      width: 90%;
-      max-width: 600px;
-      margin: 40px auto;
-      animation: rideIn 3s ease-in-out forwards;
+    button {
+      padding: 12px 20px;
+      margin: 15px;
+      border: none;
+      border-radius: 25px;
+      background-color: #ff4081;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
 
-    @keyframes rideIn {
-      0% {transform: translateX(-100vw);}
-      100% {transform: translateX(0);}
+    button: hover {
+      background-color: #ff79a8;
+    }
+
+    #noBtn {
+      position: relative;
     }
 
     .envelope {
-      width: 100px;
-      height: 60px;
-      background: #fff;
-      border: 2px solid #ff0000;
+      width: 120px;
+      height: 80px;
+      background: white;
+      border: 3px solid #ff5c8d;
+      margin: 40px auto;
       position: relative;
-      margin: 20px auto;
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
     .envelope::before {
       content: '';
       position: absolute;
-      top: -20px;
+      top: -25px;
       left: 0;
-      right: 0;
-      height: 20px;
-      background: #ff0000;
-      border-radius: 10px;
+      width: 100%;
+      height: 25px;
+      background: #ff5c8d;
+      border-radius: 15px 15px 0 0;
     }
 
     .letter {
       display: none;
-      background: #ffdde1;
-      width: 80%;
-      max-width: 400px;
-      margin: 20px auto;
-      padding: 20px;
-      color: #333;
+      background: #ffe6ec;
+      padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 0 10px #ffaaaa;
+      max-width: 500px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px #ffb6c1;
+    }
+
+    .roses {
+      width: 80px;
+      margin: 20px auto;
     }
 
     .ring-box {
       width: 100px;
       height: 100px;
-      background: #fff;
-      border: 2px solid #ff0000;
+      background: white;
+      border: 3px solid gold;
+      border-radius: 10px;
+      margin: 30px auto;
       position: relative;
-      margin: 20px auto;
       cursor: pointer;
     }
 
     .ring {
       display: none;
-      font-size: 30px;
-      color: gold;
-      margin-top: 20px;
+      font-size: 28px;
+      colour: gold;
+      margin-top: 15px;
     }
 
-    .final-scene img {
-      width: 90%;
-      max-width: 600px;
-      margin-top: 20px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      margin: 10px;
-      border: none;
-      background-color: #ff69b4;
-      color: white;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    button:disabled {
-      background-color: #ddd;
-      cursor: not-allowed;
+    .final-message {
+      font-size: 22px;
+      color: #d63384;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Section 1: Intro Bike -->
-  <div id="section1" class="section show bike-intro">
-    <h1>Happy 8 Months Anniversary, My Love! <span class="heart">❤️</span></h1>
-    <img src="https://media.tenor.com/WrsAjj5c7DoAAAAC/bike-couple.gif" alt="Yamaha FZ Couple Ride">
-    <h2>Let's go for a date?</h2>
-    <button onclick="goToLoveLetter()">Click Here</button>
+  <h1>Happy 8-Month Anniversary, Jeswin! <span class="heart">❤️</span></h1>
+  <h2>Wanna go on a forever date with me?</h2>
+  <button onclick="showEnvelope()">Yes</button>
+  <button id="noBtn" onmouseover="moveNo()">No</button>
+
+  <div class="envelope" id="envelope" onclick="openEnvelope()"></div>
+
+  <div class="letter" id="letter">
+    <img class="roses" src="https://i.imgur.com/eMZdA0i.png" alt="roses">
+    <h3>My Dearest Bujji,</h3>
+    <p>From our laughs to our dreams, every moment with you is a blessing.</p>
+    <p>I can’t wait to build a beautiful future together, filled with joy, silly jokes, and midnight cuddles.</p>
+    <p>With all my heart,</p>
+    <p><strong>Jessica (Your Bujju)</strong></p>
+    <button onclick="showProposal()">Next</button>
   </div>
 
-  <!-- Section 2: Options and Envelope -->
-  <div id="section2" class="section">
-    <h2>Do you want to go?</h2>
-    <button onclick="showEnvelope()">Yes</button>
-    <button disabled>No</button>
-
-    <div class="envelope" onclick="openEnvelope()"></div>
-    <div class="letter" id="loveLetter">
-      <h3>My Dearest Jeswin (Bujji),</h3>
-      <p>
-        From our first smile to every silly fight, from random rides to deep conversations—every moment with you is a memory I cherish.
-        These 8 months have been magical, and I can’t imagine life without your love and laughter.
-      </p>
-      <p>
-        You are my peace, my chaos, my forever person. I don't just want a happy ending—I want a beautiful journey, with you by my side, through every turn life takes.
-      </p>
-      <p>Yours truly and forever, <br> Jessica (Bujju)</p>
-      <button onclick="showProposal()">Next</button>
+  <div id="proposal" style="display: none;">
+    <div class="ring-box" onclick="openRingBox()"></div>
+    <div class="ring" id="ringText">💍 Will you marry me?</div>
+    <div class="final-message" id="finalMsg" style="display:none;">
+      Forever yours, through every up and down 💕
     </div>
   </div>
 
-  <!-- Section 3: Proposal -->
-  <div id="section3" class="section">
-    <div class="ring-box" onclick="openRingBox()"></div>
-    <div class="ring" id="ringText">Will you marry me?</div>
-    <button onclick="showFinalScene()">Yes</button>
-  </div>
-
-  <!-- Section 4: Final Scene -->
-  <div id="section4" class="section final-scene">
-    <img src="https://media.tenor.com/w9Wy9Oa3bEEAAAAC/married-life-bike-ride.gif" alt="Royal Enfield with Bride and Groom">
-    <h2>Forever riding together through ups and downs 💑</h2>
-  </div>
-
   <script>
-    function goToLoveLetter() {
-      document.getElementById('section1').classList.remove('show');
-      document.getElementById('section2').classList.add('show');
-    }
-
     function showEnvelope() {
-      document.querySelector('.envelope').style.display = 'block';
+      document.getElementById("envelope").style.display = "block";
+      document.getElementById("letter").style.display = "none";
+      document.getElementById("proposal").style.display = "none";
     }
 
     function openEnvelope() {
-      document.getElementById('loveLetter').style.display = 'block';
+      document.getElementById("letter").style.display = "block";
+      document.getElementById("envelope").style.display = "none";
     }
 
     function showProposal() {
-      document.getElementById('section2').classList.remove('show');
-      document.getElementById('section3').classList.add('show');
+      document.getElementById("letter").style.display = "none";
+      document.getElementById("proposal").style.display = "block";
     }
 
     function openRingBox() {
-      document.getElementById('ringText').style.display = 'block';
+      const ring = document.getElementById("ringText");
+      const msg = document.getElementById("finalMsg");
+      ring.style.display = "block";
+      setTimeout(() => {
+        msg.style.display = "block";
+      }, 1500);
     }
 
-    function showFinalScene() {
-      document.getElementById('section3').classList.remove('show');
-      document.getElementById('section4').classList.add('show');
+    function moveNo() {
+      const btn = document.getElementById("noBtn");
+      const randomX = Math.floor(Math.random() * 80) - 40;
+      const randomY = Math.floor(Math.random() * 80) - 40;
+      btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
     }
   </script>
+
 </body>
 </html>
+
