@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 8 Months Anniversary</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: white;
+      color: #8B0000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #8B0000;
+    }
+
+    .envelope-wrapper {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .envelope {
+      width: 100%;
+      height: 100%;
+      background: #a0522d; /* Brown envelope */
+      position: absolute;
+      border: 2px solid #5c3317;
+      border-radius: 5px;
+      z-index: 2;
+    }
+
+    .envelope:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-bottom: 100px solid #deb887;
+      z-index: 3;
+    }
+
+    .letter {
+      width: 280px;
+      margin: 0 auto;
+      background: #fff0f5;
+      border: 2px solid #8B0000;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      position: absolute;
+      top: 210px;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 1s ease, top 1s ease;
+    }
+
+    .show-letter {
+      opacity: 1;
+      top: 250px;
+    }
+
+    .open-text {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #8B0000;
+      font-size: 1.2em;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .message {
+      font-size: 1rem;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy 8 Months Anniversary, Jeswin ❤️</h1>
+
+  <div class="envelope-wrapper" onclick="openEnvelope()">
+    <div class="envelope"></div>
+    <div class="letter" id="letter">
+      <div class="message">
+        <p>My dearest Jeswin (Bujji),</p>
+        <p>8 months ago, our journey began — full of smiles, silly moments, and sweet dreams. You've been my strength, my joy, my everything. Today, I just want you to know how deeply I cherish every second with you. I imagine a future with you — of wedding bells, our little home, our kids giggling in the hall, and us growing old holding hands.</p>
+        <p>Thank you for being you. I love you beyond words. ❤️</p>
+        <p>Forever yours,<br>Jessica (Bujju)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="open-text">Click the envelope to read your letter</div>
+
+  <script>
+    function openEnvelope() {
+      document.getElementById('letter').classList.add('show-letter');
+    }
+  </script>
+
+</body>
+</html>
