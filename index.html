@@ -1,218 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy 8 Months Anniversary</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: url('https://i.ibb.co/SKXMwkh/hearts-bg.jpg') repeat;
-      background-size: cover;
-      color: #333;
-      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #8B0000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       overflow-x: hidden;
     }
 
-    .heart {
-      color: red;
-      font-size: 50px;
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      color: #8B0000;
+      text-align: center;
     }
 
-    .hidden {
-      display: none;
-    }
-
-    .envelope {
-      width: 120px;
-      height: 80px;
-      background: white;
-      border: 2px solid #ff69b4;
+    .envelope-wrapper {
       position: relative;
-      margin: 30px auto;
+      width: 300px;
+      height: 200px;
       cursor: pointer;
-      border-radius: 5px;
+      margin-bottom: 20px;
       transition: transform 0.3s ease;
     }
 
-    .envelope::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: 0;
-      right: 0;
-      height: 20px;
-      background: #ff69b4;
-      border-radius: 10px;
-    }
-
-    .open-label {
-      font-size: 14px;
-      color: #ff69b4;
-      position: absolute;
-      bottom: -20px;
+    .envelope {
+      position: relative;
       width: 100%;
-      text-align: center;
-      animation: blink 1s infinite;
+      height: 100%;
+      background: #a0522d;
+      border: 3px solid #5c3317;
+      border-radius: 5px;
+      z-index: 2;
     }
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-bottom: 100px solid #deb887;
+      z-index: 3;
+      border-radius: 5px;
     }
 
     .letter {
-      display: none;
-      background: white;
-      width: 300px;
-      margin: 20px auto;
+      width: 280px;
+      background: #fff0f5;
+      border: 2px solid #8B0000;
       padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       border-radius: 10px;
-      color: #222;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      animation: fadeIn 2s ease;
+      position: absolute;
+      top: 200px;
+      left: 10px;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(0);
+      transition: opacity 1s ease, transform 1s ease;
     }
 
-    .message-after-letter {
-      display: none;
-      margin-top: 20px;
-      padding: 15px;
-      font-size: 18px;
-      background-color: #fff0f5;
-      border-radius: 10px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: fadeIn 1s ease;
-    }
-
-    .ring-box {
-      width: 100px;
-      height: 100px;
-      background: #fff;
-      border: 3px solid #ff1493;
-      margin: 30px auto;
-      border-radius: 10px;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .ring {
-      display: none;
-      font-size: 28px;
-      color: #ff1493;
-      margin-top: 20px;
-      font-weight: bold;
-      animation: pulse 2s infinite;
-    }
-
-    button {
-      background: #ff4081;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 25px;
-      margin: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      background: #e91e63;
-    }
-
-    #noButton {
-      position: relative;
-    }
-
-    @keyframes moveNo {
-      0% { transform: translate(0, 0); }
-      25% { transform: translate(-30px, 10px); }
-      50% { transform: translate(30px, -10px); }
-      75% { transform: translate(-20px, -20px); }
-      100% { transform: translate(0, 0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Happy 8 Months Anniversary, Jeswin <span class="heart">❤️</span></h1>
-  <h2>Wanna go on a date with me?</h2>
-  <button onclick="showOptions()">Click Here</button>
-
-  <div id="options" class="hidden">
-    <button onclick="yesOption()">Yes</button>
-    <button id="noButton" onclick="noOption()">No</button>
-  </div>
-
-  <div id="loveLetter" class="hidden">
-    <div class="envelope" onclick="openEnvelope()">
-      <div class="open-label">Open 💌</div>
-    </div>
-    <div class="letter" id="letterText">
-      <h3>My Dearest Jeswin,</h3>
-      <p>These 8 months have been nothing short of magical. You’ve brought joy, love, and meaning into my life in ways I never imagined possible.</p>
-      <p>I dream of a future with you — where we laugh at silly jokes, ride through life’s crazy paths together, and grow old hand in hand.</p>
-      <p>With every beat of my heart, I love you more.</p>
-      <p>Forever yours, <br>Jessica 💖</p>
-    </div>
-    <div class="message-after-letter" id="emotionalMessage">
-      🌹 No matter where life takes us, I promise to hold your hand through every moment — good or bad. You are my forever, Jeswin. 🌹
-    </div>
-  </div>
-
-  <div id="proposal" class="hidden">
-    <div class="ring-box" onclick="openRingBox()"></div>
-    <div class="ring">💍 Will you marry me?</div>
-    <div class="ring">🌹 Forever riding together through ups and downs 🌹</div>
-  </div>
-
-  <script>
-    function showOptions() {
-      document.getElementById('options').classList.remove('hidden');
-    }
-
-    function yesOption() {
-      document.getElementById('loveLetter').classList.remove('hidden');
-      document.getElementById('options').classList.add('hidden');
-    }
-
-    function noOption() {
-      const noBtn = document.getElementById('noButton');
-      noBtn.style.animation = 'moveNo 0.5s';
-      setTimeout(() => {
-        noBtn.style.animation = '';
-      }, 500);
-    }
-
-    function openEnvelope() {
-      document.getElementById('letterText').style.display = 'block';
-      document.getElementById('emotionalMessage').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('proposal').classList.remove('hidden');
-      }, 3000);
-    }
-
-    function openRingBox() {
-      const rings = document.querySelectorAll('.ring');
-      rings.forEach(ring => ring.style.display = 'block');
-    }
-  </script>
-
-</body>
-</html>
+    .show-letter {
+      opacity
 
 
