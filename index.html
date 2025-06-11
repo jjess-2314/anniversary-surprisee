@@ -7,167 +7,212 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: url('https://i.ibb.co/yS7xS5L/hearts-bg.jpg') repeat;
+      font-family: Arial, sans-serif;
+      background: url('https://i.ibb.co/SKXMwkh/hearts-bg.jpg') repeat;
       background-size: cover;
       color: #333;
       text-align: center;
       overflow-x: hidden;
     }
 
-    h1, h2, h3 {
-      margin-top: 20px;
-    }
-
     .heart {
       color: red;
-      font-size: 40px;
+      font-size: 50px;
     }
 
-    button {
-      padding: 12px 20px;
-      margin: 15px;
-      border: none;
-      border-radius: 25px;
-      background-color: #ff4081;
-      color: white;
-      font-size: 18px;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #ff79a8;
-    }
-
-    #noBtn {
-      position: relative;
+    .hidden {
+      display: none;
     }
 
     .envelope {
       width: 120px;
       height: 80px;
       background: white;
-      border: 3px solid #ff5c8d;
-      margin: 40px auto;
+      border: 2px solid #ff69b4;
       position: relative;
+      margin: 30px auto;
       cursor: pointer;
+      border-radius: 5px;
       transition: transform 0.3s ease;
-      border-radius: 10px;
     }
 
     .envelope::before {
       content: '';
       position: absolute;
-      top: -25px;
+      top: -20px;
       left: 0;
+      right: 0;
+      height: 20px;
+      background: #ff69b4;
+      border-radius: 10px;
+    }
+
+    .open-label {
+      font-size: 14px;
+      color: #ff69b4;
+      position: absolute;
+      bottom: -20px;
       width: 100%;
-      height: 25px;
-      background: #ff5c8d;
-      border-radius: 15px 15px 0 0;
+      text-align: center;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     .letter {
       display: none;
-      background: #ffe6ec;
-      padding: 25px;
-      border-radius: 10px;
-      max-width: 500px;
+      background: white;
+      width: 300px;
       margin: 20px auto;
-      box-shadow: 0 0 10px #ffb6c1;
+      padding: 20px;
+      border-radius: 10px;
+      color: #222;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      animation: fadeIn 2s ease;
     }
 
-    .roses {
-      width: 80px;
-      margin: 20px auto;
+    .message-after-letter {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      font-size: 18px;
+      background-color: #fff0f5;
+      border-radius: 10px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 1s ease;
     }
 
     .ring-box {
       width: 100px;
       height: 100px;
-      background: white;
-      border: 3px solid gold;
-      border-radius: 10px;
+      background: #fff;
+      border: 3px solid #ff1493;
       margin: 30px auto;
-      position: relative;
+      border-radius: 10px;
       cursor: pointer;
+      position: relative;
     }
 
     .ring {
       display: none;
       font-size: 28px;
-      color: gold;
-      margin-top: 15px;
+      color: #ff1493;
+      margin-top: 20px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
     }
 
-    .final-message {
-      font-size: 22px;
-      color: #d63384;
-      margin-top: 30px;
+    button {
+      background: #ff4081;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #e91e63;
+    }
+
+    #noButton {
+      position: relative;
+    }
+
+    @keyframes moveNo {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-30px, 10px); }
+      50% { transform: translate(30px, -10px); }
+      75% { transform: translate(-20px, -20px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 <body>
 
-  <h1>Happy 8 Months Anniversary, Jeswin! <span class="heart">❤️</span></h1>
-  <h2>Wanna go on a forever date with me?</h2>
-  <button onclick="showEnvelope()">Yes</button>
-  <button id="noBtn" onmouseover="moveNo()">No</button>
+  <h1>Happy 8 Months Anniversary, Jeswin <span class="heart">❤️</span></h1>
+  <h2>Wanna go on a date with me?</h2>
+  <button onclick="showOptions()">Click Here</button>
 
-  <div class="envelope" id="envelope" onclick="openEnvelope()"></div>
-
-  <div class="letter" id="letter">
-    <img class="roses" src="https://i.ibb.co/W0jYP50/rose.png" alt="roses">
-    <h3>My Dearest Bujji,</h3>
-    <p>From our laughs to our dreams, every moment with you is a blessing.</p>
-    <p>I can’t wait to build a beautiful future together, filled with joy, silly jokes, and midnight cuddles.</p>
-    <p>With all my heart,</p>
-    <p><strong>Jessica (Your Bujju)</strong></p>
-    <button onclick="showProposal()">Next</button>
+  <div id="options" class="hidden">
+    <button onclick="yesOption()">Yes</button>
+    <button id="noButton" onclick="noOption()">No</button>
   </div>
 
-  <div id="proposal" style="display: none;">
-    <div class="ring-box" onclick="openRingBox()"></div>
-    <div class="ring" id="ringText">💍 Will you marry me?</div>
-    <div class="final-message" id="finalMsg" style="display:none;">
-      Forever yours, through every up and down 💕
+  <div id="loveLetter" class="hidden">
+    <div class="envelope" onclick="openEnvelope()">
+      <div class="open-label">Open 💌</div>
+    </div>
+    <div class="letter" id="letterText">
+      <h3>My Dearest Jeswin,</h3>
+      <p>These 8 months have been nothing short of magical. You’ve brought joy, love, and meaning into my life in ways I never imagined possible.</p>
+      <p>I dream of a future with you — where we laugh at silly jokes, ride through life’s crazy paths together, and grow old hand in hand.</p>
+      <p>With every beat of my heart, I love you more.</p>
+      <p>Forever yours, <br>Jessica 💖</p>
+    </div>
+    <div class="message-after-letter" id="emotionalMessage">
+      🌹 No matter where life takes us, I promise to hold your hand through every moment — good or bad. You are my forever, Jeswin. 🌹
     </div>
   </div>
 
+  <div id="proposal" class="hidden">
+    <div class="ring-box" onclick="openRingBox()"></div>
+    <div class="ring">💍 Will you marry me?</div>
+    <div class="ring">🌹 Forever riding together through ups and downs 🌹</div>
+  </div>
+
   <script>
-    function showEnvelope() {
-      document.getElementById("envelope").style.display = "block";
-      document.getElementById("letter").style.display = "none";
-      document.getElementById("proposal").style.display = "none";
+    function showOptions() {
+      document.getElementById('options').classList.remove('hidden');
+    }
+
+    function yesOption() {
+      document.getElementById('loveLetter').classList.remove('hidden');
+      document.getElementById('options').classList.add('hidden');
+    }
+
+    function noOption() {
+      const noBtn = document.getElementById('noButton');
+      noBtn.style.animation = 'moveNo 0.5s';
+      setTimeout(() => {
+        noBtn.style.animation = '';
+      }, 500);
     }
 
     function openEnvelope() {
-      document.getElementById("letter").style.display = "block";
-      document.getElementById("envelope").style.display = "none";
-    }
-
-    function showProposal() {
-      document.getElementById("letter").style.display = "none";
-      document.getElementById("proposal").style.display = "block";
+      document.getElementById('letterText').style.display = 'block';
+      document.getElementById('emotionalMessage').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('proposal').classList.remove('hidden');
+      }, 3000);
     }
 
     function openRingBox() {
-      const ring = document.getElementById("ringText");
-      const msg = document.getElementById("finalMsg");
-      ring.style.display = "block";
-      setTimeout(() => {
-        msg.style.display = "block";
-      }, 1500);
-    }
-
-    function moveNo() {
-      const btn = document.getElementById("noBtn");
-      const randomX = Math.floor(Math.random() * 200) - 100;
-      const randomY = Math.floor(Math.random() * 100) - 50;
-      btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+      const rings = document.querySelectorAll('.ring');
+      rings.forEach(ring => ring.style.display = 'block');
     }
   </script>
 
 </body>
 </html>
+
 
